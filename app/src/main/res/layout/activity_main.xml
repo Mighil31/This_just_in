@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:id="@+id/trending"
         android:layout_height="wrap_content"
-        android:text="Trending"
+        android:text="Worldwide"
         android:textSize="20dp"
         android:gravity="center"
         android:padding="16dp"

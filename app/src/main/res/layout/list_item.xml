@@ -23,6 +23,8 @@
         android:textSize="15dp"
         android:maxLines="2"
         android:padding="8dp"
+        android:textStyle="bold"
+
         tools:text="India win 2019 ODI World Cup after a thumping 500 run victory"
         />
 
@@ -34,6 +36,8 @@
         android:textSize="14dp"
         android:layout_below="@id/title"
         android:layout_toRightOf="@id/image"
+        android:background="#161616"
+        android:textColor="#ffffff"
         tools:text="The Times of India"/>
 
     <TextView
