@@ -33,10 +33,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textSize="14dp"
         android:layout_below="@id/title"
         android:layout_toRightOf="@id/image"
-        android:background="#161616"
+        android:background="#727070"
+        android:layout_marginLeft="8dp"
         android:textColor="#ffffff"
         tools:text="The Times of India"/>
 
