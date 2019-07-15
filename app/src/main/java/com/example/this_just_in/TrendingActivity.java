@@ -26,67 +26,19 @@ public class TrendingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trending);
+        setContentView(R.layout.activity_category);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new TrendingFragment())
+                .commit();
 
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(true)
-                .cacheOnDisk(true)
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-        ImageLoader.getInstance().init(config); // Do it on Application start
-        // Find a reference to the {@link ListView} in the layout
-        ListView bookListView = (ListView) findViewById(R.id.listview);
 
-        String search_query = "https://newsapi.org/v2/top-headlines?language=en&apiKey=9d0fb4e298994103a35284846e2c40d9";
-        // Create a new adapter that takes an empty list of books as input
-        mAdapter = new NewsAdapter(this, new ArrayList<News>());
-
-        bookListView.setAdapter(mAdapter);
-
-        NewsAsyncTask task = new NewsAsyncTask();
-        task.execute(search_query);
 
 
     }
 
-    private class NewsAsyncTask extends AsyncTask<String, Void, List<News>> {
 
 
-        @Override
-        protected void onPreExecute() {
-            spinner = (ProgressBar)findViewById(R.id.progressBar);
-            spinner.setVisibility(View.VISIBLE);
-            super.onPreExecute();
-        }
 
-        @Override
-        protected List<News> doInBackground(String... urls) {
-            // Don't perform the request if there are no URLs, or the first URL is null.
-            if (urls.length < 1 || urls[0] == null) {
-                return null;
-            }
-
-            List<News> result = Utils.fetchNewsData(urls[0]);
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(List<News> data) {
-            // Clear the adapter of previous book data
-            mAdapter.clear();
-            spinner = (ProgressBar)findViewById(R.id.progressBar);
-            spinner.setVisibility(View.GONE);
-            // If there is a valid list of books, then add them to the adapter's
-            // data set. This will trigger the ListView to update.
-            if (data != null && !data.isEmpty()) {
-                mAdapter.addAll(data);
-            }
-
-        }
-
-    }
 
 
 

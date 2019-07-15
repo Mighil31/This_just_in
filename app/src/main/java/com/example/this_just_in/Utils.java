@@ -3,7 +3,9 @@ package com.example.this_just_in;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -25,6 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
+
+    private NewsAdapter mAdapter;
+    ProgressBar spinner;
 
 
     public static ArrayList<News> extractNews(String newsJSON) {
@@ -160,5 +165,9 @@ public class Utils {
             return null;
         }
     }
+
+
+
+
 
 }
