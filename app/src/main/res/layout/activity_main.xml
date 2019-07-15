@@ -1,32 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <TextView
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:id="@+id/trending"
-        android:layout_height="wrap_content"
-        android:text="Worldwide"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:padding="16dp"
-        android:background="@color/colorTrending"/>
+        android:layout_height="wrap_content" />
 
-    <TextView
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/india"
-        android:text="India"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:padding="16dp"
-        android:background="@color/colorIndia"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

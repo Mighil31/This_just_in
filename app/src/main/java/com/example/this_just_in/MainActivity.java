@@ -1,11 +1,14 @@
 package com.example.this_just_in;
 
-import androidx.appcompat.app.AppCompatActivity;
+import  androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,30 +17,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView trending = findViewById(R.id.trending);
-        TextView india = findViewById(R.id.india);
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        trending.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the numbers View is clicked on.
-            @Override
-            public void onClick(View view) {
-                Intent trendingIntent = new Intent(MainActivity.this, TrendingActivity.class);
-                startActivity(trendingIntent);
-            }
-        });
+        // Create an adapter that knows which fragment should be shown on each page
+        CategoryAdapter adapter = new CategoryAdapter(this, getSupportFragmentManager());
 
-        india.setOnClickListener(new View.OnClickListener() {
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
 
-            @Override
-            public void onClick(View view) {
-                Intent indiaIntent = new Intent(MainActivity.this, IndiaActivity.class);
-                startActivity(indiaIntent);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
-            }
-        });
-
-
+        tabLayout.setupWithViewPager(viewPager);
     }
 
 
 }
+
+
+
