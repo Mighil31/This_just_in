@@ -1,6 +1,7 @@
 package com.example.this_just_in;
-
-public class News {
+import java.io.Serializable;
+@SuppressWarnings("serial")
+public class News implements Serializable {
 
 
     // The link to the image
@@ -15,11 +16,14 @@ public class News {
     // Publishing date
     private String mPublishedAt;
 
-    public News(String title, String name, String publishedAt, String urlToImage) {
+    private String mcontent;
+
+    public News(String title, String name, String publishedAt, String urlToImage, String content) {
         mName = name;
         mTitle = title;
         mPublishedAt = publishedAt;
         mUrlToImage = urlToImage;
+        mcontent = content;
     }
 
     // Getter methods
@@ -38,6 +42,10 @@ public class News {
 
     public String getPublishedAt() {
         return mPublishedAt;
+    }
+
+    public String getContent() {
+        return mcontent;
     }
 
 }

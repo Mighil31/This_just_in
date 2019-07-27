@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D5483A</color>
-    <color name="colorPrimaryDark">#D5483A</color>
+    <color name="colorPrimary">#2F5EF0</color>
+    <color name="colorPrimaryDark">#2F5EF0</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorTrending">#93FF26</color>
     <color name="colorIndia">#000080</color>

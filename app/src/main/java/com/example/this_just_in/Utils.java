@@ -7,10 +7,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,6 +43,7 @@ public class Utils {
             String url;
             String urlToImage;
             String publishedAt;
+            String content;
 
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
             JSONArray articlesArray = baseJsonResponse.getJSONArray("articles");
@@ -55,12 +52,13 @@ public class Utils {
                 JSONObject currentNews = articlesArray.getJSONObject(i);
                 JSONObject source = currentNews.getJSONObject("source");
 
+                content = currentNews.getString("content");
                 name = source.getString("name");
                 title = currentNews.getString("title");
                 urlToImage = currentNews.getString("urlToImage");
                 publishedAt = currentNews.getString("publishedAt");
 
-                News newsitem = new News(title, name, publishedAt, urlToImage);
+                News newsitem = new News(title, name, publishedAt, urlToImage, content);
                 news.add(newsitem);
             }
 
